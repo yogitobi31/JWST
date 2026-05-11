@@ -70,7 +70,7 @@ export function App() {
 
   const exportCsv = () => {
     const header = ['id', 'x', 'y', 'ra', 'dec', 'grade', 'type', 'note', 'timestamp'];
-    const rows = candidates.map((c) => [c.id, c.x, c.y, c.ra ?? '', c.dec ?? '', c.grade, c.type, c.note.replaceAll('"', '""'), c.timestamp]);
+    const rows = candidates.map((c) => [c.id, c.x, c.y, c.ra ?? '', c.dec ?? '', c.grade, c.type, c.note.split('"').join('""'), c.timestamp]);
     const metadata = [
       ['project name', 'JWST Deep Field Anomaly Atlas'],
       ['dataset name', 'Sample Deep Field'],
