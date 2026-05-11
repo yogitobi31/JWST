@@ -1,0 +1,28 @@
+:root { color-scheme: dark; font-family: Inter, system-ui, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #090b11; color: #e8edf7; }
+.app-shell { min-height: 100vh; display: grid; grid-template-rows: auto 1fr; }
+.topbar { padding: 0.75rem 1rem; border-bottom: 1px solid #1d2433; }
+.topbar h1 { margin: 0; font-size: 1.1rem; font-weight: 600; }
+.topbar p { margin: 0.2rem 0 0; color: #97a2b5; font-size: 0.85rem; }
+.layout { min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 0.75rem; padding: 0.75rem; overflow: hidden; }
+.viewer-wrap { min-width: 0; display: grid; grid-template-rows: minmax(0,1fr) auto; gap: 0.5rem; }
+.viewer { position: relative; border: 1px solid #1d2433; background: #000; overflow: auto; max-height: calc(100vh - 170px); }
+.viewer img { display: block; width: 100%; height: auto; cursor: crosshair; }
+.marker { position: absolute; transform: translate(-50%, -50%); width: 12px; height: 12px; border-radius: 2px; border: 1px solid #f9f9ff; background: rgba(190,57,76,.9); }
+.marker.selected { width: 15px; height: 15px; border-color: #fff; box-shadow: 0 0 0 2px rgba(255,255,255,.3); }
+.note { font-size: 0.8rem; color: #9fa9bd; }
+.panel { border: 1px solid #1d2433; background: #0d121b; min-width: 0; display: grid; grid-template-rows: auto minmax(120px,1fr) auto; }
+.panel-header { padding: 0.65rem; border-bottom: 1px solid #1d2433; }
+.actions { display: grid; gap: 0.3rem; }
+button, input, select, textarea { width: 100%; background: #101726; color: #dce5f6; border: 1px solid #283145; padding: 0.45rem; font: inherit; }
+ul { list-style: none; margin: 0; padding: 0; overflow: auto; }
+.row { text-align: left; border-width: 0 0 1px 0; border-color: #20293d; background: transparent; padding: 0.55rem; }
+.row.selected { background: #18233b; }
+.editor { padding: 0.65rem; border-top: 1px solid #1d2433; display: grid; gap: 0.45rem; }
+.danger { border-color: #5d2a2a; }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) auto; }
+  .viewer { max-height: 60vh; }
+  .panel { max-height: 38vh; }
+}
